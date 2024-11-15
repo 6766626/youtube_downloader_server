@@ -27,7 +27,11 @@ def load_config():
 
 # Сохранение конфигурации
 def save_config(config):
-    with open('config.json', 'w') as f:
+    # Получаем текущую директорию проекта
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    # Путь к файлу log1.txt
+    config_file = os.path.join(current_directory, 'config.json')
+    with open(f'{config_file}', 'w') as f:
         json.dump(config, f)
 
 # HTML-шаблон для отображения формы и сообщений
